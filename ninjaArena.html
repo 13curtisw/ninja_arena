@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ninja Arena</title>
+	<link rel="stylesheet" type="text/css" href="class_styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<script type="text/javascript">
+	
+	$(document).ready(function(){
+		$('#player_select').hide();
+		$('#btngroup button').click(function(){
+			$('#wrapper').css('background-image', 'url("' + $(this).attr("data-src") +'")');
+			$('#arena_select').hide();
+			$('#player_select').show();
+		});
+		$('#player1').change(function(){
+			$("#wrapper").append('<img src="' + $("#player1 option:selected").attr("data-src") + '" class="player1" />' );
+			$(this).attr("disabled","disabled");
+			if($("#player2").attr("disabled") == "disabled"){
+				$("#player_select").hide();
+			}
+		});
+		$('#player2').change(function(){
+			$("#wrapper").append('<img src="' + $("#player2 option:selected").attr("data-src") + '" class="player2" />' );
+			$(this).attr("disabled","disabled");
+			if($("#player1").attr("disabled") == "disabled"){
+				$("#player_select").hide();
+			}
+		});
+
+		$(document).keydown(function(event){
+			console.log(event.keyCode);
+			if(event.keyCode == 37){ //left arrow
+				$(".player2").css("left", parseInt($(".player2").css("left")) - 6 + "px");
+			} else if(event.keyCode == 39){ //right arrow
+				$(".player2").css("left", parseInt($(".player2").css("left")) + 6 + "px");
+			} else if(event.keyCode == 65){
+				$(".player1").css("left", parseInt($(".player1").css("left")) - 6 + "px");
+			} else if(event.keyCode == 68){
+				$(".player1").css("left", parseInt($(".player1").css("left")) + 6 + "px");
+			} else if(event.keyCode == 32){
+				$("#player_select").hide();
+				$("#arena_select").show();
+				$("img").remove();
+				$("#player1").removeAttr("disabled");
+				$("#player2").removeAttr("disabled");
+				$("#player1 option:selected").removeAttr("selected");
+				$("#player2 option:selected").removeAttr("selected");
+				$("#wrapper").css("background-image", "none");
+
+			}
+		});
+
+
+	});
+
+
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+		<div id="menu">
+		<div id="arena_select" class="selection">
+
+			<h1>Select an Arena</h1>
+			<div id="btngroup">
+			  <button value="desert" data-src="https://s-media-cache-ak0.pinimg.com/originals/56/c3/45/56c345c29b5179d85891b1500fccc8e9.gif ">Desert</button>
+			  <button value="village"  data-src="http://i.imgur.com/4003cn5.gif">Village</button>
+			  <button value="forest" data-src="	https://twistedsifter.files.wordpress.com/2013/05/animated-gifs-of-fighting-game-backgrounds-25.gif?w=800&h=336">Forest</button>
+			  <button value="ruins" data-src="http://a1.files.theultralinx.com/image/upload/MTI5MDI0MjcwMTg4NzEzMjM0.gif ">Ruins</button>
+			  <button value="garden" data-src="http://i.imgur.com/jTQ0gbh.gif ">Garden</button>
+			  <button value="alley" data-src="http://i.imgur.com/zbgMO.gif ">Alley</button>
+			</div>
+		</div>
+		<div id="player_select" class="selection">
+			<h1>Select a Player</h1>
+			<select id="player1">
+			  <option selected>Select Player</option>
+			  <option value="Elsa" data-src= "http://vignette2.wikia.nocookie.net/vsbattles/images/e/e2/Elsa_(Disney).png/revision/latest?cb=20160119122355">Elsa</option>
+			  <option value="Mulan" data-src= "http://vignette3.wikia.nocookie.net/disney/images/2/28/Mulannewuk.png/revision/latest?cb=20151211202911">Mulan</option>
+			  <option value="Jasmine" data-src= "http://vignette2.wikia.nocookie.net/kingdomhearts/images/c/c1/Jasmine.png/revision/latest?cb=20110807075452 ">Jasmine</option>
+			  <option value="snowwhite" data-src= "http://vignette3.wikia.nocookie.net/disney/images/5/5c/Snow_White_Clipart.gif/revision/latest?cb=20130104065915">Snow White</option>
+			  <option value="Arial" data-src= "http://vignette2.wikia.nocookie.net/disneykilalaprincess/images/0/01/Princess_Ariel.png/revision/latest?cb=20120627055117">Ariel</option>
+			</select>
+
+			<select id="player2">
+			<option selected="selected">Select Player</option>
+			<option value="Elsa" data-src= "http://vignette2.wikia.nocookie.net/vsbattles/images/e/e2/Elsa_(Disney).png/revision/latest?cb=20160119122355">Elsa</option>
+			  <option value="Mulan" data-src= "http://vignette3.wikia.nocookie.net/disney/images/2/28/Mulannewuk.png/revision/latest?cb=20151211202911">Mulan</option>
+			  <option value="Jasmine" data-src= "http://vignette2.wikia.nocookie.net/kingdomhearts/images/c/c1/Jasmine.png/revision/latest?cb=20110807075452 ">Jasmine</option>
+			  <option value="snowwhite" data-src= "http://vignette3.wikia.nocookie.net/disney/images/5/5c/Snow_White_Clipart.gif/revision/latest?cb=20130104065915">Snow White</option>
+			  <option value="Arial" data-src= "http://vignette2.wikia.nocookie.net/disneykilalaprincess/images/0/01/Princess_Ariel.png/revision/latest?cb=20120627055117">Ariel</option>
+			</select>
+		</div>
+		</div>
+
+
+		<!-- desert
+		<img src= "https://s-media-cache-ak0.pinimg.com/originals/56/c3/45/56c345c29b5179d85891b1500fccc8e9.gif "> -->
+
+	<!-- temple
+		http://vignette2.wikia.nocookie.net/lego/images/5/56/Dojo_Background.jpg/revision/latest?cb=20120723034737  -->
+
+	<!-- forest
+	https://twistedsifter.files.wordpress.com/2013/05/animated-gifs-of-fighting-game-backgrounds-25.gif?w=800&h=336
+	 -->
+
+
+	<!-- ruins
+	http://a1.files.theultralinx.com/image/upload/MTI5MDI0MjcwMTg4NzEzMjM0.gif  -->
+
+	<!-- garden 
+	http://i.imgur.com/jTQ0gbh.gif -->
+
+	<!-- alley
+	http://i.imgur.com/zbgMO.gif  -->
+
+
+<!-- elsa 
+http://vignette2.wikia.nocookie.net/vsbattles/images/e/e2/Elsa_(Disney).png/revision/latest?cb=20160119122355-->
+
+<!-- mulan 
+http://vignette3.wikia.nocookie.net/disney/images/2/28/Mulannewuk.png/revision/latest?cb=20151211202911  --> 
+
+<!-- Jasmine
+http://vignette2.wikia.nocookie.net/kingdomhearts/images/c/c1/Jasmine.png/revision/latest?cb=20110807075452  -->
+
+<!-- 
+	snowwhite
+http://vignette3.wikia.nocookie.net/disney/images/5/5c/Snow_White_Clipart.gif/revision/latest?cb=20130104065915  -->
+<!-- aerial
+http://vignette2.wikia.nocookie.net/disneykilalaprincess/images/0/01/Princess_Ariel.png/revision/latest?cb=20120627055117  -->
+
+	</div>
+	<p id="controls">Controls: A and D key for Player 1, Arrow keys for Player 2, Press Space to reset</p>
+</body>
+</html>

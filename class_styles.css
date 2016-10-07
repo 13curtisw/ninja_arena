@@ -1,0 +1,57 @@
+#wrapper{
+	height:353px;
+	width:862px;
+	background-size: 862px 384px;
+	background-repeat: no-repeat;
+	border: 3px solid black;
+	margin: 0 auto;
+	padding-top: 30px;
+	position: relative;
+}
+h1{
+	margin:0px;
+	color:orange;
+	margin-bottom: 10px;
+
+}
+#menu{
+	width: 300px;
+	height: 100px;
+	margin: 0 auto;
+}
+.selection{
+	width:300px;
+	height:100px;
+	background-color:grey;
+	opacity:0.8;
+	margin:0 auto;
+	border-radius: 5px;
+	text-align: center;
+	padding-bottom: 0px;
+}
+img{
+	position: absolute;
+	top: 200px;
+	height:150px;
+}
+.player2{
+	-moz-transform: scaleX(-1);
+       -o-transform: scaleX(-1);
+       -webkit-transform: scaleX(-1);
+       transform: scaleX(-1);
+       filter: FlipH;
+       -ms-filter: "FlipH";
+     left: 600px;
+}
+.player1{
+	left: 100px;
+}
+#btngroup{
+	width: 200px;
+	margin: 10px auto;
+
+}
+#controls{
+	margin: 0 auto;
+	width: 600px;
+}
